@@ -9,8 +9,12 @@ def get_user(user_id):
         "name" : "john doe",
         "email": "john.doe@example.com"
     }
-
     
+    extra = request.args.get("extra") 
+    if extra:
+        user_data["extra"] = extra
+    
+    return jsonify(user_data), 200
 
 
 if __name__ == "__main__" :
